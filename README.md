@@ -10,6 +10,10 @@ Katalog książek z API [Wolne Lektury](https://wolnelektury.pl/) przepisany z V
 - Katalog z filtrami i paginacją to wyspa Vue (`client:only`), która pobiera okrojoną listę książek z endpointu `/api/products`. Filtry i strona zostają w `sessionStorage`, więc po powrocie z karty książki katalog wygląda tak jak przed wyjściem.
 - Przyciski pobierania na karcie książki i modal to wyspa Vue (`client:load`).
 
+## Wyszukiwarki
+
+Projekt jest wyłączony z indeksowania: meta `robots`/`googlebot` w layoucie, nagłówek `X-Robots-Tag` dodawany przez middleware do każdej odpowiedzi serwera oraz `public/robots.txt` z `Disallow: /`.
+
 ## Komendy
 
 ```sh
