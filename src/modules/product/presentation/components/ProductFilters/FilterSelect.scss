@@ -1,0 +1,125 @@
+.filter-select {
+  position: relative;
+  min-width: 0;
+  padding: $space-2 $space-3 $space-3 0;
+
+  & + & {
+    padding-left: $space-3;
+    border-left: $rule-thin;
+  }
+
+  @include mobile {
+    &:nth-child(odd) {
+      padding-left: 0;
+      border-left: 0;
+    }
+
+    &:nth-child(n + 3) {
+      border-top: $rule-thin;
+    }
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: $space-1;
+    @include label;
+  }
+
+  &__toggle {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: $space-2;
+    cursor: pointer;
+
+    &:hover .filter-select__value {
+      color: $signal;
+    }
+
+    &.active .filter-select__arrow {
+      transform: rotate(180deg);
+      color: $signal;
+    }
+  }
+
+  &__value {
+    overflow: hidden;
+    font-weight: 700;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    transition: color $transition;
+  }
+
+  &__arrow {
+    flex: none;
+    font-size: 0.6rem;
+    transition: transform $transition;
+  }
+
+  &__dropdown {
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    right: 0;
+    min-width: 12rem;
+    z-index: 1000;
+    background: $paper;
+    border: 2px solid $ink;
+  }
+
+  & + &:last-child &__dropdown,
+  &:nth-child(even) &__dropdown {
+    left: auto;
+  }
+
+  &__search-wrapper {
+    padding: $space-2;
+    border-bottom: $rule-ink;
+  }
+
+  &__search {
+    width: 100%;
+    padding: $space-1 $space-2;
+    border: $rule-thin;
+    border-radius: 0;
+    background: $paper;
+    font-size: $text-sm;
+
+    &:focus {
+      outline: none;
+      border-color: $ink;
+    }
+  }
+
+  &__options {
+    list-style: none;
+    max-height: 280px;
+    overflow-y: auto;
+  }
+
+  &__item {
+    padding: $space-2 $space-3;
+    font-size: $text-sm;
+    cursor: pointer;
+
+    & + & {
+      border-top: $rule-thin;
+    }
+
+    &:hover {
+      background: $tint;
+    }
+
+    &.selected {
+      background: $ink;
+      color: $paper;
+      font-weight: 700;
+    }
+  }
+
+  &__no-results {
+    padding: $space-3;
+    font-size: $text-sm;
+    color: $mid;
+  }
+}

@@ -1,0 +1,30 @@
+.breadcrumbs {
+  margin-bottom: $space-4;
+
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: $space-2;
+    @include label;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: $space-2;
+  }
+
+  &__link {
+    @include link-transition($mid, $signal);
+  }
+
+  &__current {
+    color: $ink;
+  }
+
+  &__separator {
+    color: $rule;
+  }
+}

@@ -1,0 +1,56 @@
+.product-box-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+  padding-top: $space-3;
+  border-top: $rule-heavy;
+
+  &__info {
+    @include flex-column;
+    flex: 1;
+  }
+
+  &__mb-1 {
+    margin-bottom: $space-2;
+  }
+  &__mb-2 {
+    margin-bottom: $space-4;
+  }
+  &__mb-3 {
+    margin-bottom: $space-6;
+  }
+  &__mt-auto {
+    margin-top: auto;
+  }
+}
+
+// W katalogu skeleton udaje wiersz indeksu
+.product-listing__grid .product-box-skeleton {
+  flex-direction: row;
+  align-items: center;
+  gap: $space-4;
+  padding-block: $space-2;
+  padding-left: calc(3rem + #{$space-4});
+  border-top: 0;
+  border-bottom: $rule-thin;
+
+  > .skeleton:first-child {
+    flex: none;
+    width: 2.5rem !important;
+    height: 3.5rem !important;
+  }
+
+  .product-box-skeleton__info {
+    flex-direction: row;
+    gap: $space-4;
+
+    .skeleton {
+      height: 0.875rem !important;
+      margin: 0;
+    }
+
+    .skeleton:nth-child(n + 4) {
+      display: none;
+    }
+  }
+}

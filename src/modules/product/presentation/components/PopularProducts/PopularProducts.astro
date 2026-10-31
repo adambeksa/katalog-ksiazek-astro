@@ -1,0 +1,16 @@
+---
+import { t } from '@/i18n';
+import { ProductApiService } from '@/modules/product/infrastructure/api-services/ProductApiService';
+import ProductBox from '../ProductBox/ProductBox.vue';
+import './PopularProducts.scss';
+
+// Server island (server:defer) - do czasu pobrania listy strona pokazuje PopularProductsSkeleton
+const products = (await new ProductApiService().getAll()).slice(0, 3);
+---
+
+<section class="popular-products">
+  <h2 class="popular-products__title">{t('products.popular.title')}</h2>
+  <div class="popular-products__grid">
+    {products.map((product) => <ProductBox product={product} />)}
+  </div>
+</section>

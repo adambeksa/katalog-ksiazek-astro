@@ -1,0 +1,37 @@
+.product-attribution {
+  margin-top: $space-8;
+  padding-top: $space-3;
+  border-top: $rule-ink;
+
+  &__header {
+    margin-bottom: $space-3;
+  }
+
+  &__logo {
+    display: block;
+    max-width: 140px;
+    height: auto;
+  }
+
+  &__content {
+    display: grid;
+    gap: $space-1;
+  }
+
+  &__item {
+    font-size: $text-sm;
+    line-height: 1.5;
+
+    strong {
+      display: inline-block;
+      min-width: 6.5rem;
+      margin-right: $space-2;
+      @include label;
+    }
+  }
+
+  &__link {
+    @include link-underline;
+    font-weight: 700;
+  }
+}

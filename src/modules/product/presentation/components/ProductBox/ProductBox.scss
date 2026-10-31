@@ -1,0 +1,172 @@
+// Domyślnie: wiersz indeksu w katalogu. W .popular-products__grid: karta.
+.product-box {
+  position: relative;
+  @include index-row;
+  padding-block: $space-2;
+  border-bottom: $rule-thin;
+  counter-increment: book;
+  transition: background-color $transition;
+
+  &::before {
+    content: counter(book, abe-index);
+    font-size: $text-sm;
+    font-variant-numeric: tabular-nums;
+    color: $mid;
+  }
+
+  &:hover {
+    background: $tint;
+  }
+
+  &:hover &__title {
+    color: $signal;
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 200 / 278;
+    object-fit: cover;
+    background: $tint;
+  }
+
+  &__info,
+  &__meta {
+    display: contents;
+  }
+
+  &__title {
+    font-size: $text-md;
+    font-weight: 700;
+    line-height: 1.25;
+    transition: color $transition;
+  }
+
+  &__author,
+  &__epoch,
+  &__kind {
+    font-size: $text-sm;
+    min-width: 0;
+  }
+
+  &__audio {
+    grid-column: 7;
+    justify-self: start;
+    width: 0.625rem;
+    height: 0.625rem;
+    overflow: hidden;
+    background: $signal;
+    color: transparent;
+    font-size: 0;
+  }
+
+  // Cały wiersz jest klikalny
+  &__link {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+    color: transparent;
+    font-size: 0;
+  }
+
+  @include mobile {
+    grid-template-columns: 2.5rem minmax(0, 1fr) auto;
+    row-gap: 0;
+
+    &::before,
+    &__epoch,
+    &__kind {
+      display: none;
+    }
+
+    &__image {
+      grid-row: span 2;
+    }
+
+    &__title {
+      grid-column: 2;
+    }
+
+    &__author {
+      grid-column: 2;
+      color: $mid;
+    }
+
+    &__audio {
+      grid-column: 3;
+      grid-row: 1;
+    }
+  }
+}
+
+.popular-products__grid .product-box {
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  grid-template-rows: auto 1fr;
+  align-items: start;
+  column-gap: $space-4;
+  row-gap: $space-3;
+  padding-block: $space-3 0;
+  border-top: $rule-heavy;
+  border-bottom: 0;
+
+  &::before {
+    grid-column: 1 / -1;
+    color: $signal;
+    font-weight: 700;
+  }
+
+  &:hover {
+    background: none;
+  }
+}
+
+.popular-products__grid .product-box__image {
+  grid-row: auto;
+}
+
+.popular-products__grid .product-box__info {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+}
+
+.popular-products__grid .product-box__title {
+  grid-column: auto;
+  font-size: $text-lg;
+  font-stretch: $width-expanded;
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 1.05;
+}
+
+.popular-products__grid .product-box__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.popular-products__grid .product-box__author,
+.popular-products__grid .product-box__epoch,
+.popular-products__grid .product-box__kind {
+  display: block;
+  grid-column: auto;
+  color: $ink;
+}
+
+.popular-products__grid .product-box__epoch,
+.popular-products__grid .product-box__kind {
+  color: $mid;
+}
+
+.popular-products__grid .product-box__audio {
+  display: inline-block;
+  width: auto;
+  height: auto;
+  margin-top: $space-1;
+  padding: 1px $space-2;
+  background: $signal;
+  color: $paper;
+  @include label;
+  color: $paper;
+}

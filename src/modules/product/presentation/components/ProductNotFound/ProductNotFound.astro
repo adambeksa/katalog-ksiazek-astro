@@ -1,0 +1,12 @@
+---
+import { t } from '@/i18n';
+import { ROUTES } from '@/routes';
+import './ProductNotFound.scss';
+---
+
+<div class="product-not-found">
+  <h1>{t('productCard.notFound')}</h1>
+  <a href={ROUTES.PRODUCTS.path} class="product-not-found__back-link">
+    {t('productCard.backToList')}
+  </a>
+</div>

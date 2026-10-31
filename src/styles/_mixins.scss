@@ -1,0 +1,173 @@
+@use "sass:math";
+@use "tokens" as *;
+
+// Flexbox Mixins
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// Media Queries
+@mixin mobile {
+  @media (max-width: $bp-mobile) {
+    @content;
+  }
+}
+
+// Layout
+@mixin container {
+  width: 100%;
+  max-width: $container-max;
+  margin: 0 auto;
+  padding-left: max($gutter, env(safe-area-inset-left, 0px));
+  padding-right: max($gutter, env(safe-area-inset-right, 0px));
+
+  @include mobile {
+    padding-left: max($space-4, env(safe-area-inset-left, 0px));
+    padding-right: max($space-4, env(safe-area-inset-right, 0px));
+  }
+}
+
+@mixin section-margin-bottom {
+  margin-bottom: $space-8;
+}
+
+@mixin index-row {
+  display: grid;
+  grid-template-columns: $index-columns;
+  column-gap: $space-4;
+  align-items: center;
+}
+
+// Typografia
+@mixin label {
+  font-size: $text-xs;
+  font-weight: 500;
+  letter-spacing: $tracking-label;
+  text-transform: uppercase;
+  color: $mid;
+}
+
+@mixin display($size: $text-display) {
+  font-size: $size;
+  font-weight: 800;
+  font-stretch: $width-expanded;
+  line-height: $leading-tight;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  text-wrap: balance;
+  overflow-wrap: anywhere;
+}
+
+@mixin heading {
+  font-size: $text-xl;
+  font-weight: 800;
+  font-stretch: $width-expanded;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+// Linki i przyciski
+@mixin link-underline {
+  color: $ink;
+  text-decoration: underline;
+  text-decoration-color: $signal;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  transition: color $transition;
+
+  &:hover {
+    color: $signal;
+  }
+}
+
+@mixin link-transition($color, $hover-color) {
+  color: $color;
+  transition: color $transition;
+  text-decoration: none;
+
+  &:hover {
+    color: $hover-color;
+  }
+}
+
+@mixin button-base {
+  display: inline-block;
+  padding: $space-3 $space-6;
+  border: 2px solid $ink;
+  border-radius: 0;
+  font-family: inherit;
+  font-size: $text-md;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color $transition,
+    color $transition,
+    border-color $transition;
+}
+
+@mixin button-solid {
+  @include button-base;
+  background: $ink;
+  color: $paper;
+
+  &:hover:not(:disabled) {
+    background: $signal;
+    border-color: $signal;
+  }
+
+  &:disabled {
+    background: $rule;
+    border-color: $rule;
+    color: $mid;
+    cursor: not-allowed;
+  }
+}
+
+@mixin button-outline {
+  @include button-base;
+  background: transparent;
+  color: $ink;
+
+  &:hover:not(:disabled) {
+    background: $ink;
+    color: $paper;
+  }
+}
+
+@mixin text-button {
+  background: none;
+  border: none;
+  padding: $space-1 0;
+  font-family: inherit;
+  font-size: $text-sm;
+  font-weight: 700;
+  color: $ink;
+  cursor: pointer;
+  transition: color $transition;
+
+  &:hover:not(:disabled) {
+    color: $signal;
+  }
+
+  &:disabled {
+    color: $rule;
+    cursor: not-allowed;
+  }
+}

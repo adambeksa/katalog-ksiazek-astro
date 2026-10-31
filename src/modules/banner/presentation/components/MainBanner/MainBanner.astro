@@ -1,0 +1,19 @@
+---
+import { t } from '@/i18n';
+import { ROUTES } from '@/routes';
+import './MainBanner.scss';
+---
+
+<section class="banner">
+  <h1 class="banner__title">{t('banner.title')}</h1>
+  <p class="banner__text">
+    {t('banner.text')}{' '}
+    <a href="https://wolnelektury.pl/" class="banner__link">
+      {t('banner.source')}
+    </a>
+    {' '}. {t('banner.description')}
+  </p>
+  <a href={ROUTES.PRODUCTS.path} class="banner__cta">
+    {t('banner.cta')}
+  </a>
+</section>

@@ -1,0 +1,15 @@
+---
+import { t } from '@/i18n';
+import { ROUTES } from '@/routes';
+import './NotFoundPage.scss';
+---
+
+<div class="not-found">
+  <div class="not-found__content">
+    <h1>404</h1>
+    <p>{t('productCard.notFound')}</p>
+    <a href={ROUTES.HOME.path} class="not-found__link">
+      {t('common.back')}
+    </a>
+  </div>
+</div>

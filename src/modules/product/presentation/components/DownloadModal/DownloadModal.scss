@@ -1,0 +1,109 @@
+.download-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  @include flex-center;
+  padding: $space-4;
+  background: rgba($ink, 0.6);
+
+  &__content {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+    max-height: calc(100vh - #{$space-8});
+    overflow-y: auto;
+    padding: $space-6;
+    background: $paper;
+    border: 2px solid $ink;
+
+    h2 {
+      @include heading;
+      margin-bottom: $space-2;
+      padding-right: $space-8;
+    }
+
+    p {
+      margin-bottom: $space-6;
+      font-size: $text-sm;
+      color: $mid;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: $space-3;
+    right: $space-4;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    line-height: 1;
+    color: $ink;
+    cursor: pointer;
+
+    &:hover {
+      color: $signal;
+    }
+  }
+
+  &__formats-list,
+  &__files-list {
+    display: grid;
+    border-top: $rule-heavy;
+  }
+
+  &__files-list {
+    max-height: 320px;
+    overflow-y: auto;
+  }
+
+  &__format-link,
+  &__file-link {
+    display: flex;
+    justify-content: space-between;
+    gap: $space-4;
+    padding: $space-3 0;
+    border-bottom: $rule-thin;
+    color: $ink;
+    text-decoration: none;
+    transition: color $transition;
+
+    &::after {
+      content: "↓";
+      color: $signal;
+    }
+
+    &:hover {
+      color: $signal;
+    }
+  }
+
+  &__format-link {
+    font-weight: 700;
+  }
+
+  &__file-name {
+    font-size: $text-sm;
+  }
+
+  &__no-formats {
+    color: $signal-dark;
+  }
+
+  &__header-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: $space-4;
+    margin-bottom: $space-2;
+    padding-right: $space-8;
+
+    h2 {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  &__back-button {
+    @include text-button;
+  }
+}

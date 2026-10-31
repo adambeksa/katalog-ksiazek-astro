@@ -1,0 +1,30 @@
+.header {
+  background: $paper;
+  border-bottom: $rule-heavy;
+  @include section-margin-bottom;
+
+  &__container {
+    @include container;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: $space-3 $space-8;
+    padding-top: $space-6;
+    padding-bottom: $space-3;
+  }
+
+  &__logo {
+    color: $ink;
+    text-decoration: none;
+
+    &:hover .header__title {
+      color: $signal;
+    }
+  }
+
+  &__title {
+    @include heading;
+    transition: color $transition;
+  }
+}

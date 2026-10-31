@@ -1,0 +1,15 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import MainBanner from '@/modules/banner/presentation/components/MainBanner/MainBanner.astro';
+import PopularProducts from '@/modules/product/presentation/components/PopularProducts/PopularProducts.astro';
+import PopularProductsSkeleton from '@/modules/product/presentation/components/PopularProducts/PopularProductsSkeleton.astro';
+---
+
+<Layout>
+  <div class="home">
+    <MainBanner />
+    <PopularProducts server:defer>
+      <PopularProductsSkeleton slot="fallback" />
+    </PopularProducts>
+  </div>
+</Layout>

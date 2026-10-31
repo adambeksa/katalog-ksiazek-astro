@@ -1,0 +1,17 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import Breadcrumbs from '@/modules/shared/ui/components/Breadcrumbs/Breadcrumbs.astro';
+import ProductListing from '@/modules/product/presentation/pages/ProductListingPage/ProductListing.vue';
+import ProductListingSkeleton from '@/modules/product/presentation/pages/ProductListingPage/ProductListingSkeleton.vue';
+import '@/modules/product/presentation/pages/ProductListingPage/ProductListingPage.scss';
+---
+
+<Layout>
+  <div class="product-listing">
+    <Breadcrumbs />
+
+    <ProductListing client:only="vue">
+      <ProductListingSkeleton slot="fallback" />
+    </ProductListing>
+  </div>
+</Layout>

@@ -1,0 +1,63 @@
+.product-listing {
+  min-height: 100%;
+
+  &__title {
+    @include heading;
+    margin-bottom: $space-4;
+  }
+
+  &__head {
+    @include index-row;
+    padding-bottom: $space-2;
+    border-bottom: $rule-ink;
+    @include label;
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &__grid {
+    margin-bottom: $space-8;
+    counter-reset: book;
+  }
+
+  &__empty {
+    padding-block: $space-12;
+    border-bottom: $rule-thin;
+    font-size: $text-lg;
+    color: $mid;
+  }
+
+  &__error {
+    padding-block: $space-12;
+    font-size: $text-lg;
+    color: $signal-dark;
+  }
+}
+
+.pagination {
+  @include flex-between;
+  gap: $space-4;
+  padding-top: $space-3;
+  border-top: $rule-heavy;
+
+  &__button {
+    @include text-button;
+    font-size: $text-md;
+
+    &:first-child::before {
+      content: "← ";
+    }
+
+    &:last-child::after {
+      content: " →";
+    }
+  }
+
+  &__info {
+    font-size: $text-sm;
+    font-variant-numeric: tabular-nums;
+    color: $mid;
+  }
+}

@@ -1,0 +1,15 @@
+.footer {
+  margin-top: $space-16;
+  border-top: $rule-heavy;
+
+  &__container {
+    @include container;
+    padding-top: $space-3;
+    padding-bottom: $space-8;
+  }
+
+  &__text {
+    font-size: $text-sm;
+    color: $mid;
+  }
+}

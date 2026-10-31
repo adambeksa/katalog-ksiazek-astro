@@ -1,0 +1,12 @@
+---
+import { t } from '@/i18n';
+import ProductBoxSkeleton from '../ProductBox/ProductBoxSkeleton.vue';
+import './PopularProducts.scss';
+---
+
+<section class="popular-products">
+  <h2 class="popular-products__title">{t('products.popular.title')}</h2>
+  <div class="popular-products__grid">
+    {[1, 2, 3].map(() => <ProductBoxSkeleton />)}
+  </div>
+</section>

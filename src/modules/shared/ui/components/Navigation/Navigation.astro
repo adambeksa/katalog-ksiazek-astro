@@ -1,0 +1,28 @@
+---
+import { t } from '@/i18n';
+import { ROUTES, exactActiveLinkAttrs } from '@/routes';
+import './Navigation.scss';
+
+const links = [
+  { path: ROUTES.HOME.path, label: t('nav.home') },
+  { path: ROUTES.PRODUCTS.path, label: t('nav.products') },
+];
+---
+
+<nav class="navigation">
+  {
+    links.map(({ path, label }) => {
+      const active = exactActiveLinkAttrs(path, Astro.url.pathname);
+
+      return (
+        <a
+          href={path}
+          class:list={[active.class, 'navigation__link']}
+          aria-current={active['aria-current']}
+        >
+          {label}
+        </a>
+      );
+    })
+  }
+</nav>

@@ -1,0 +1,67 @@
+---
+import { t } from '@/i18n';
+import { ProductApiService } from '@/modules/product/infrastructure/api-services/ProductApiService';
+import ProductAttribution from '@/modules/product/presentation/components/ProductAttribution/ProductAttribution.astro';
+import ProductNotFound from '@/modules/product/presentation/components/ProductNotFound/ProductNotFound.astro';
+import Breadcrumbs from '@/modules/shared/ui/components/Breadcrumbs/Breadcrumbs.astro';
+import ProductCardActions from './ProductCardActions.vue';
+import './ProductCardPage.scss';
+
+interface Props {
+  id: string;
+  path: string;
+}
+
+// Server island (server:defer) - do czasu pobrania książki strona pokazuje ProductCardSkeleton
+const { id, path } = Astro.props;
+const product = await new ProductApiService().getById(id);
+---
+
+{
+  !product ? (
+    <ProductNotFound />
+  ) : (
+    <div class="product-card-page">
+      <Breadcrumbs currentLabel={product.name} path={path} />
+
+      <button class="product-card-page__back-link" onclick="history.back()">
+        {t('common.back')}
+      </button>
+
+      <div class="product-card-page__details">
+        <div class="product-card-page__image-section">
+          <img class="product-card-page__main-image" src={product.image} alt={product.name} />
+        </div>
+
+        <div class="product-card-page__info-section">
+          <h2>{product.author}</h2>
+          <h1>{product.name}</h1>
+
+          <dl class="product-card-page__facts">
+            <div>
+              <dt>{t('products.filters.epoch')}</dt>
+              <dd>{product.epoch}</dd>
+            </div>
+            <div>
+              <dt>{t('products.filters.kind')}</dt>
+              <dd>{product.kind}</dd>
+            </div>
+            <div>
+              <dt>{t('products.filters.genre')}</dt>
+              <dd>{product.genre}</dd>
+            </div>
+          </dl>
+
+          <div class="product-card-page__description-section">
+            <h3>{t('productCard.descriptionTitle')}</h3>
+            <div class="product-card-page__description-content" set:html={product.description} />
+          </div>
+
+          <ProductAttribution product={product} />
+
+          <ProductCardActions client:load product={{ ...product }} />
+        </div>
+      </div>
+    </div>
+  )
+}

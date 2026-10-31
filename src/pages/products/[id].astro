@@ -1,0 +1,13 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import ProductCard from '@/modules/product/presentation/pages/ProductCardPage/ProductCard.astro';
+import ProductCardSkeleton from '@/modules/product/presentation/pages/ProductCardPage/ProductCardSkeleton.astro';
+
+const { id = '' } = Astro.params;
+---
+
+<Layout>
+  <ProductCard server:defer id={id} path={Astro.url.pathname}>
+    <ProductCardSkeleton slot="fallback" />
+  </ProductCard>
+</Layout>

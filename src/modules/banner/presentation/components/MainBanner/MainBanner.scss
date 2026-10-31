@@ -1,0 +1,43 @@
+.banner {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: $gutter;
+  row-gap: $space-6;
+  padding-bottom: $space-12;
+  margin-bottom: $space-12;
+  border-bottom: $rule-heavy;
+
+  &__title {
+    grid-column: 1 / -1;
+    @include display;
+  }
+
+  &__text {
+    grid-column: 1 / span 7;
+    max-width: 60ch;
+    font-size: $text-lg;
+    line-height: 1.5;
+  }
+
+  &__link {
+    @include link-underline;
+  }
+
+  &__cta {
+    grid-column: 9 / -1;
+    align-self: end;
+    justify-self: start;
+    @include button-solid;
+
+    &::after {
+      content: " →";
+    }
+  }
+
+  @include mobile {
+    &__text,
+    &__cta {
+      grid-column: 1 / -1;
+    }
+  }
+}

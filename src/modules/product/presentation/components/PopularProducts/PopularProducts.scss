@@ -1,0 +1,19 @@
+.popular-products {
+  @include section-margin-bottom;
+
+  &__title {
+    @include heading;
+    margin-bottom: $space-4;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: $space-8 $gutter;
+    counter-reset: book;
+
+    @include mobile {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+}

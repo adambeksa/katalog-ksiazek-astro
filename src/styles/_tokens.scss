@@ -1,0 +1,54 @@
+// Biblioteka ABE — tokeny projektu „Siatka”
+// Wspólny plik dla React, Vue, Next.js i Nuxt. Trzymaj go identycznym we wszystkich czterech repozytoriach.
+// Zasada: czerń, biel i jeden sygnałowy czerwony. Hierarchię budują krój, linie i siatka, nie cienie ani zaokrąglenia.
+
+// Kolor
+$ink: #111111; // tekst, linie grube, przyciski
+$paper: #ffffff; // tło
+$signal: #e2231a; // jedyny akcent: numery, aktywne stany, znacznik audio
+$signal-dark: #b81a12; // błędy, hover na czerwonym
+$tint: #efefec; // tło aktywnego wiersza, skeletony
+$rule: #d9d9d4; // cienkie linie między wierszami
+$mid: #6b6b64; // etykiety i tekst drugorzędny (kontrast 5.3:1 na bieli)
+
+// Krój: jeden zmienny Archivo; szerokość 125% dla tytułów, 100% dla tekstu
+$font-sans: var(--font-archivo, "Archivo"), "Helvetica Neue", Arial, sans-serif;
+$width-expanded: 125%;
+
+// Skala typograficzna
+$text-xs: 0.6875rem; // 11px etykiety kolumn
+$text-sm: 0.8125rem; // 13px
+$text-md: 0.9375rem; // 15px tekst
+$text-lg: 1.125rem; // 18px
+$text-xl: 1.5rem; // 24px nagłówki sekcji
+$text-2xl: 2.25rem; // 36px
+$text-display: clamp(2.5rem, 7vw, 5.5rem); // tytuł strony głównej i karty książki
+
+$leading-tight: 0.92;
+$leading-body: 1.55;
+$tracking-label: 0.08em;
+
+// Odstępy (baza 4px)
+$space-1: 0.25rem;
+$space-2: 0.5rem;
+$space-3: 0.75rem;
+$space-4: 1rem;
+$space-6: 1.5rem;
+$space-8: 2rem;
+$space-12: 3rem;
+$space-16: 4rem;
+
+// Linie
+$rule-thin: 1px solid $rule;
+$rule-ink: 1px solid $ink;
+$rule-heavy: 3px solid $ink;
+
+// Siatka
+$container-max: 1200px;
+$gutter: $space-6;
+$bp-mobile: 768px;
+
+// Kolumny indeksu książek: Nr | okładka | tytuł | autor | epoka | rodzaj | audio
+$index-columns: 3rem 2.5rem minmax(0, 2.2fr) minmax(0, 1.6fr) minmax(0, 1.3fr) minmax(0, 0.8fr) 3rem;
+
+$transition: 120ms linear;

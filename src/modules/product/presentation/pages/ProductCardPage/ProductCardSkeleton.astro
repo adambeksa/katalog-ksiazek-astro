@@ -1,0 +1,48 @@
+---
+import { t } from '@/i18n';
+import Skeleton from '@/modules/shared/ui/components/Skeleton/Skeleton.vue';
+import Breadcrumbs from '@/modules/shared/ui/components/Breadcrumbs/Breadcrumbs.astro';
+import './ProductCardPage.scss';
+---
+
+<div class="product-card-page">
+  <div class="container">
+    <Breadcrumbs />
+    <button class="product-card-page__back-link">
+      {t('common.back')}
+    </button>
+
+    <div class="product-card-page__details">
+      <div class="product-card-page__image-section">
+        <Skeleton height="400px" width="100%" border-radius="8px" />
+      </div>
+
+      <div class="product-card-page__info-section">
+        <Skeleton height="24px" width="150px" class="product-card-page__skeleton-mb-2" />
+        <Skeleton height="48px" width="300px" class="product-card-page__skeleton-mb-4" />
+
+        <div class="product-card-page__description-section">
+          <Skeleton height="28px" width="120px" class="product-card-page__skeleton-mb-2" />
+          <Skeleton height="16px" width="100%" class="product-card-page__skeleton-mb-1" />
+          <Skeleton height="16px" width="100%" class="product-card-page__skeleton-mb-1" />
+          <Skeleton height="16px" width="90%" class="product-card-page__skeleton-mb-1" />
+          <Skeleton height="16px" width="95%" class="product-card-page__skeleton-mb-1" />
+          <Skeleton height="16px" width="60%" class="product-card-page__skeleton-mb-1" />
+        </div>
+
+        <div class="product-card-page__skeleton-mt-4">
+          <Skeleton height="100px" width="100%" border-radius="8px" />
+        </div>
+
+        <div class="product-card-page__actions product-card-page__skeleton-mt-4">
+          <Skeleton
+            height="48px"
+            width="180px"
+            border-radius="24px"
+            class="product-card-page__skeleton-mr-2"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

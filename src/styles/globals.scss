@@ -1,0 +1,73 @@
+// Import SCSS variables and mixins
+@use "variables" as *;
+@use "mixins" as *;
+
+// Numeracja indeksu książek: 001, 002…
+@counter-style abe-index {
+  system: extends decimal;
+  pad: 3 "0";
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: $font-sans;
+  font-size: $text-md;
+  line-height: $leading-body;
+  color: $ink;
+  background: $paper;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid $signal;
+  outline-offset: 2px;
+}
+
+::selection {
+  background: $signal;
+  color: $paper;
+}
+
+code {
+  font-family: ui-monospace, Menlo, Consolas, "Courier New", monospace;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+#app {
+  min-height: 100vh;
+}

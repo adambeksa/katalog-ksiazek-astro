@@ -1,0 +1,17 @@
+---
+import Navigation from '../Navigation/Navigation.astro';
+import { t } from '@/i18n';
+import { ROUTES, exactActiveLinkAttrs } from '@/routes';
+import './Header.scss';
+
+const active = exactActiveLinkAttrs(ROUTES.HOME.path, Astro.url.pathname);
+---
+
+<header class="header">
+  <div class="header__container">
+    <a href={ROUTES.HOME.path} class:list={[active.class, 'header__logo']} aria-current={active['aria-current']}>
+      <h1 class="header__title">{t('meta.title')}</h1>
+    </a>
+    <Navigation />
+  </div>
+</header>

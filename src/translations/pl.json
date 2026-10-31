@@ -1,0 +1,77 @@
+{
+  "common": {
+    "back": "← Powrót",
+    "loading": "Ładowanie...",
+    "all": "Wszystkie"
+  },
+  "meta": {
+    "title": "Biblioteka ABE",
+    "description": "Katalog książek z Wolne Lektury"
+  },
+  "nav": {
+    "home": "Strona Główna",
+    "products": "Katalog książek",
+    "productDetails": "Szczegóły książki"
+  },
+  "banner": {
+    "title": "Witam w bibliotece!",
+    "text": "Wszystkie dane o książkach pochodzą z serwisu",
+    "source": "WolneLektury.pl",
+    "description": "Dzięki uprzejmości twórców API, mogę stworzyć swój katalog książek w celach szkoleniowych. Aplikacja, którą właśnie wyświetlasz jest moim pierwszym projektem w Astro.",
+    "cta": "Przeglądaj książki"
+  },
+  "products": {
+    "popular": {
+      "title": "Popularne lektury"
+    },
+    "listing": {
+      "empty": "Brak książek w wybranej kategorii.",
+      "error": "Błąd ładowania produktów",
+      "columns": {
+        "number": "Nr",
+        "title": "Tytuł",
+        "audio": "Audio"
+      }
+    },
+    "filters": {
+      "author": "Autor",
+      "epoch": "Epoka",
+      "genre": "Gatunek",
+      "kind": "Rodzaj"
+    },
+    "pagination": {
+      "previous": "Poprzednia",
+      "next": "Następna",
+      "pageInfo": "Strona {page} z {total}"
+    },
+    "box": {
+      "viewDetails": "Zobacz szczegóły"
+    }
+  },
+  "productCard": {
+    "descriptionTitle": "Opis lektury",
+    "readBook": "Przeczytaj książkę",
+    "listenAudiobook": "Posłuchaj audiobooka",
+    "notFound": "Książka nie została znaleziona",
+    "backToList": "Powrót do listy książek"
+  },
+  "downloadModal": {
+    "title": "Wybierz format pobierania",
+    "audiobookTitle": "Wybierz format audiobooka",
+    "book": "Książka:",
+    "download": "Pobierz {format}",
+    "noFormats": "Brak dostępnych formatów do pobrania.",
+    "back": "← Wróć",
+    "selectFile": "Wybierz plik do pobrania:",
+    "format": "Format: {format}"
+  },
+  "attribution": {
+    "source": "Źródło:",
+    "sourceText": "Książka pochodzi z serwisu",
+    "license": "Licencja:",
+    "licenseFallback": "szczegóły na stronie utworu w Wolnych Lekturach",
+    "narrator": "Lektor:",
+    "director": "Reżyser:",
+    "wolneLektury": "Wolne Lektury"
+  }
+}

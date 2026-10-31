@@ -1,0 +1,13 @@
+.product-not-found {
+  padding-block: $space-12;
+  border-top: $rule-heavy;
+
+  h1 {
+    @include display($text-2xl);
+    margin-bottom: $space-6;
+  }
+
+  &__back-link {
+    @include button-solid;
+  }
+}

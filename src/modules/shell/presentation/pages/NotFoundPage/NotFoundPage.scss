@@ -1,0 +1,19 @@
+.not-found {
+  padding-block: $space-12;
+  border-top: $rule-heavy;
+
+  h1 {
+    @include display;
+    color: $signal;
+    margin-bottom: $space-4;
+  }
+
+  p {
+    font-size: $text-lg;
+    margin-bottom: $space-8;
+  }
+
+  &__link {
+    @include button-solid;
+  }
+}

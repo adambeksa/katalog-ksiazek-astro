@@ -1,0 +1,26 @@
+.navigation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-6;
+
+  &__link {
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+    color: $ink;
+    font-size: $text-sm;
+    font-weight: 700;
+    text-decoration: none;
+    transition:
+      color $transition,
+      border-color $transition;
+
+    &:hover {
+      color: $signal;
+    }
+
+    &[aria-current="page"],
+    &.router-link-exact-active {
+      border-bottom-color: $signal;
+    }
+  }
+}
